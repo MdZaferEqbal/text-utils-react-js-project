@@ -36,6 +36,15 @@
   color: #61dafb;
 }
 
+.text-utils-preview{
+  white-space: pre-wrap;
+  /* overflow-y: scroll !important; */
+  width: 1240px;
+  height: 200px;
+  /* border: 1px solid #ccc; */
+  padding: 10px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

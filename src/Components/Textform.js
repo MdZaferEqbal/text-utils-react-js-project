@@ -129,7 +129,7 @@ export default function Textform(props) {
         </div>
         <div className={props.darkMode ? "container my-5" : "container my-5 bg-white"}>
             <h2 className={props.darkMode ? "text-light" : "bg-white text-secondary" }>Preview</h2>
-            <p className={!text ? 'text-break text-danger' : props.darkMode ? 'text-break text-white' : 'text-break text-dark'}>{text ? text : 'Enter the text in text area to get preview here!'}</p>
+            <pre className={!text ? 'text-utils-preview overflow-auto text-break text-danger' : props.darkMode ? 'text-utils-preview overflow-auto text-break text-white' : 'text-utils-preview overflow-auto text-break text-dark'}>{text ? text : 'Enter the text in text area to get preview here!'}</pre>
         </div>
         </>
     )

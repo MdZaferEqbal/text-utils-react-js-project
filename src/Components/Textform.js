@@ -51,7 +51,6 @@ export default function Textform(props) {
     const getAndSetCountOfWords = (text) => {
         if (text) {
             const wordsArray = text.trim().split(' ');
-            // const newWordsArray = wordsArray.filter(word => /[a-zA-Z]/.test(word));
             setCountOfWords(wordsArray.length);
             return wordsArray.length;
         } else {

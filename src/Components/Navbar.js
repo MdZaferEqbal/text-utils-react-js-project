@@ -27,12 +27,12 @@ export default function Navbar(props) {
                 </ul>
                 <div className="form-check form-switch">
                     <input className="form-check-input darkModeClass" onClick={darkModeToggle} type="checkbox" role="switch" id="flexSwitchCheckChecked"/>
-                    <label className="form-check-label text-light" htmlFor="flexSwitchCheckChecked">Dark Mode</label>
+                    <label className="form-check-label text-light" htmlFor="flexSwitchCheckChecked"><b>Dark Mode</b></label>
                 </div>
-                <form className="d-flex mx-3">
+                {/* <form className="d-flex mx-3">
                     <input className="form-control me-2" type="search" placeholder="Type here..." style={{backgroundColor: darkMode ? '#6c757d' : 'white'}} aria-label="Search"/>
                     <button className="btn btn-outline-light" type="submit">Search</button>
-                </form>
+                </form> */}
                 </div>
             </div>
         </nav>

@@ -42,7 +42,6 @@ export default function Textform(props) {
     }
     const getAndSetCountOfCharacters = (text) => {
         if(text) {
-            // console.log( 'Test 2: ' + text);
             setCountOfCharacters(text.length);
             return text.length;
         } else {
@@ -74,14 +73,12 @@ export default function Textform(props) {
         }
     }
     const textOnChangeHandle = (event) => {
-        // console.log('event.target.value: ' + event.target.value);
         if(event.target.value) {
             setText(event.target.value);
-            console.log(text);
-            if(text) {
-                getAndSetCountOfCharacters(text);
-                getAndSetCountOfWords(text);
-                getAndSetCountOfSentences(text);
+            if(event.target.value) {
+                getAndSetCountOfCharacters(event.target.value);
+                getAndSetCountOfWords(event.target.value);
+                getAndSetCountOfSentences(event.target.value);
             }
             setAlertState(false);
         } else {

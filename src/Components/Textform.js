@@ -15,6 +15,9 @@ export default function Textform(props) {
             setAlertState(false);
         } else {
             setAlertState(true);
+            setTimeout(() => {
+                setAlertState(false);
+            }, 3000);
             setAlertMessage("Enter text to convert it into UPPERCASE!");
         }
     }
@@ -24,6 +27,9 @@ export default function Textform(props) {
             setAlertState(false);
         } else {
             setAlertState(true);
+            setTimeout(() => {
+                setAlertState(false);
+            }, 3000);
             setAlertMessage("Enter text to convert it into lowercase!");
         }
     }
@@ -37,6 +43,9 @@ export default function Textform(props) {
             setAlertState(false);
         } else {
             setAlertState(true);
+            setTimeout(() => {
+                setAlertState(false);
+            }, 3000);
             setAlertMessage("Enter text to Remove Extra Spaces!");
         }
     }
@@ -94,18 +103,26 @@ export default function Textform(props) {
             <div className={alertState ? "alert alert-danger customAlter"  : "alert alert-danger customAlter d-none"} role="alert">
                 {alertMessage}
             </div>
+            <div className={ props.darkModeAlert ? "alert alert-success d-flex align-items-center" : "alert alert-success d-flex align-items-center d-none"} role="alert">
+                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                    <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+                </svg>
+                <div>
+                    {props.darkModeAlertMessage}
+                </div>
+            </div>
             <div className="mb-3">
                 <textarea placeholder={props.textAreaPlaceholder} value={text} onChange={textOnChangeHandle} className={props.darkMode ? "form-control text-white" : "form-control text-dark"} style={{backgroundColor: props.darkMode ? '#6c757d' : 'white'}} id="myBox" rows="8"></textarea>
             </div>
             <div className="container">
-                <button className="btn btn-secondary mx-1" onClick={convertToUpperCase}>
-                    Click here to convert text into <b>UPPERCASE</b>
+                <button className="btn btn-secondary my-1 mx-1 button-shadow" onClick={convertToUpperCase}>
+                    Convert text into <b>UPPERCASE</b>
                 </button>
-                <button className="btn btn-secondary mx-1" onClick={convertToLowerCase}>
-                    Click here to convert text into <b>lowercase</b>
+                <button className="btn btn-secondary my-1 mx-1 button-shadow" onClick={convertToLowerCase}>
+                    Convert text into <b>lowercase</b>
                 </button>
-                <button className="btn btn-secondary mx-1" onClick={removeExtraSpaces}>
-                    Click here to <b>Remove Extra Spaces</b>
+                <button className="btn btn-secondary my-1 mx-1 button-shadow" onClick={removeExtraSpaces}>
+                    <b>Remove Extra Spaces</b>
                 </button>
             </div>
         </div>

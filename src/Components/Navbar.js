@@ -3,10 +3,22 @@ import PropTypes from 'prop-types'
 import Textform from './Textform'
 
 export default function Navbar(props) {
-    const [darkMode, setDarkMode] = useState(false);
+    const [darkMode, setDarkMode]                         = useState(false);
+    const [darkModeAlert, setDarkModeAlert]               = useState(false);
+    const [darkModeAlertMessage, setDarkModeAlertMessage] = useState('Light Mode Activated!');
+
     const darkModeToggle = (event) => {
         setDarkMode(event.target.checked);
         props.toggleMode(event.target.checked);
+        if(event.target.checked) {
+            setDarkModeAlertMessage('Dark Mode Activated!');
+        } else {
+            setDarkModeAlertMessage('Light Mode Activated!');
+        }
+        setDarkModeAlert(true);
+        setTimeout(() => {
+            setDarkModeAlert(false);
+        }, 3000);
     }
     return (
         <>
@@ -26,18 +38,14 @@ export default function Navbar(props) {
                     </li>
                 </ul>
                 <div className="form-check form-switch">
-                    <input className="form-check-input darkModeClass" onClick={darkModeToggle} type="checkbox" role="switch" id="flexSwitchCheckChecked"/>
+                    <input className={darkMode ? "bg-secondary border-0 form-check-input" : "border-0 form-check-input"} onClick={darkModeToggle} type="checkbox" role="switch" id="flexSwitchCheckChecked"/>
                     <label className="form-check-label text-light" htmlFor="flexSwitchCheckChecked"><b>Dark Mode</b></label>
                 </div>
-                {/* <form className="d-flex mx-3">
-                    <input className="form-control me-2" type="search" placeholder="Type here..." style={{backgroundColor: darkMode ? '#6c757d' : 'white'}} aria-label="Search"/>
-                    <button className="btn btn-outline-light" type="submit">Search</button>
-                </form> */}
                 </div>
             </div>
         </nav>
         <div className={darkMode ? "container" : "container bg-white" }>
-            <Textform heading="Enter the text to analyze below" darkMode = {darkMode}/>
+            <Textform heading="Enter the text to analyze below" darkMode={darkMode} darkModeAlert={darkModeAlert} darkModeAlertMessage={darkModeAlertMessage}/>
         </div>
         </>
     )
